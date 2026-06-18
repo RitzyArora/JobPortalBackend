@@ -6,7 +6,9 @@ const errorHandler=require("./middleware/errorHandler")
 const morgan=require("morgan")
 
 const app=express()
-app.use(cors())
+app.use(cors({
+    origin:"https://job-portal-frontend-ten-ruddy.vercel.app/"
+}))
 app.use(express.json())
 app.use(errorHandler)
 app.use("/api/auth",authRoutes)
