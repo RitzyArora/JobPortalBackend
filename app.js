@@ -7,7 +7,7 @@ const morgan=require("morgan")
 
 const app=express()
 app.use(cors({
-    origin:"https://job-portal-frontend-ten-ruddy.vercel.app"
+    origin:"https://job-portal-frontend-gilt-xi.vercel.app/"
 }))
 app.use(express.json())
 
