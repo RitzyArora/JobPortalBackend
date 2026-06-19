@@ -1,27 +1,33 @@
 name: Backend CI
+
 on:
- push:
-  branches:
-   - main
-  path:
-   - 'job-portal-backend/server/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/server/**'
+
 jobs:
- backend-test:
-  runs-on: ubuntu-latest
-  dafaults:
-   run:
-    working-directory: job-portal-backend/server
-  steps:
-   - name: Checkout Code
-     uses: actions/checkout@v4
+  backend-test:
 
-   - name: Setup NodeJs
-     uses: actions/setup-node@v4
-     with:
-      node-version: 20
-   
-   - name: Install Dependencies
-     run: npm Install
+    runs-on: ubuntu-latest
 
-   - name: Run Tests
-     run: npm test
+    defaults:
+      run:
+        working-directory: backend/server
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
